@@ -1,8 +1,14 @@
 ﻿import './Search.css';
 import React from "react";
 
-class Search extends React.Component {
-    state = { search: "" };
+class Search extends React.Component
+{
+    state =
+        {
+            search: "",
+            type: "all",
+            page: 1
+        };
 
     handleKey = (event) => {
         if (event.key === 'Enter') { 
@@ -18,9 +24,33 @@ class Search extends React.Component {
         )
     }
 
-    render() {
+    prevPage = () =>
+    {
+        this.setState
+        (
+            () => (this.state.page > 1 ? { page: this.state.page - 1 } : { page: 1 }),
+            () => { this.props.searchMovie(this.state.search, this.state.type, this.state.page) }
+        )
+    }
+    nextPage = () =>
+    {
+        this.setState
+        (
+            () => ({ page: this.state.page + 1 }),
+            () => { this.props.searchMovie(this.state.search, this.state.type, this.state.page)}
+        )
+    }
+
+    render()
+    {
+        let itemsPerPage = 10;
+        let totalPages = Math.ceil(this.props.totalCount / itemsPerPage);
+
+        let number = [];
+        for (let i = 0; i < totalPages; i++)
+            number.push(i);
         return (
-            <div>
+            <>
                 <div className="search">
                     <input
                         type="search"
@@ -81,7 +111,30 @@ class Search extends React.Component {
                     />
                     <label htmlFor="radio-games">Games</label> 
                 </div>
-            </div>
+                <div className="pagination">
+                    <button className="btn" onClick={this.prevPage} >
+                        Prev
+                    </button>
+                    <div className="items">
+                        {
+                            number.slice(0, totalPages)
+                                .map
+                                (
+                                    (element, index) =>
+                                    (
+                                        <button className={ element == this.state.page ? "btn-current-page" : "" } >
+                                         { element }
+                                     </button>
+                                )
+                            )
+                        }
+                    </div>
+
+                    <button className="btn" onClick={this.nextPage} >
+                        Next
+                    </button>
+                </div>
+            </>
         );
     }
 }

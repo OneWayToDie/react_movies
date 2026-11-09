@@ -1,9 +1,14 @@
 .footer
 {
-	background-color:rgb(0,91,151);
-	color:white;
-	text-align:center;
-	padding:16px;
-	font-weight:500;
-	font-size:24px;
+	/* Чёрный фон — перекликается с шапкой */
+	background-color: #111;
+	/* Жёлтый текст */
+	color: #f5c518;
+	text-align: center;
+	padding: 16px;
+	font-weight: 500;
+	font-size: 16px;
+	/* Тень сверху для отделения от контента */
+	box-shadow: 0 -2px 8px rgba(0,0,0,0.3);
+	margin-top: auto;
 }

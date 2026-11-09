@@ -1,48 +1,139 @@
 .search
 {
-	margin: 24px;
-	display:flex;
-	justify-content:space-between;
-	align-items:center;
+	margin: 24px auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 800px;
+	background-color: #fff;
+	padding: 8px 16px;
+	border-radius: 24px;
+	/* Чёрная рамка с жёлтой тенью — акцент */
+	border: 2px solid #111;
+	box-shadow: 0 4px 12px rgba(245, 197, 24, 0.2);
+	transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
+
+	/* При фокусе внутри — подсветка жёлтым */
+	.search:focus-within
+	{
+		border-color: #f5c518;
+		box-shadow: 0 4px 16px rgba(245, 197, 24, 0.45);
+	}
 
 	.search input
 	{
-		width:100%;
-		font-size: 24px;
-		text-align:center;
-		border:0px;
-		color:#BBB;
+		width: 100%;
+		font-size: 20px;
+		text-align: left;
+		border: 0;
+		background: transparent;
+		color: #111;
+		padding: 8px;
 	}
+
+		.search input::placeholder
+		{
+			color: #888;
+		}
 
 		.search input:focus
 		{
-			outline:none;
-			border-bottom: solid 1px gray;
+			outline: none;
 		}
 
 	.search > button
 	{
-		background-color: white;
-		color:white;
-		width:50px;
-		height:32px;
-		font-size:24px;
+		background-color: transparent;
+		/* Иконка поиска — в жёлтом */
+		color: #f5c518;
+		width: 50px;
+		height: 32px;
+		font-size: 24px;
 		border: none;
-		/*border-radius: 8px;*/
+		cursor: pointer;
+		transition: transform 0.2s;
 	}
+
+		.search > button:hover
+		{
+			transform: scale(1.1);
+			color: #e0b000;
+		}
+
+/* Блок радио-кнопок (All, Movies, Series, Games) */
+.radio
+{
+	display: flex;
+	justify-content: center;
+	gap: 16px;
+	margin: 16px 0;
+	font-size: 16px;
+	color: #111;
+}
+
+	.radio input
+	{
+		cursor: pointer;
+		margin-right: 4px;
+		/* Красим радио-кнопку жёлтым */
+		accent-color: #f5c518;
+	}
+
+	.radio label
+	{
+		cursor: pointer;
+		margin-right: 8px;
+		font-weight: 500;
+	}
+
 .pagination
 {
-	display:flex;
-	justify-content:space-around;
-	align-items:center;
-
-	margin:24px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	margin: 24px 0;
+	flex-wrap: wrap;
 }
+
+	/* Общие стили для кнопок пагинации */
+	.pagination button
+	{
+		padding: 8px 12px;
+		border: 1px solid #111;
+		background-color: #fff;
+		color: #111;
+		border-radius: 6px;
+		cursor: pointer;
+		font-size: 16px;
+		font-weight: 600;
+		transition: all 0.2s ease;
+	}
+
+		/* Наведение — жёлтая подсветка */
+		.pagination button:hover:not(.btn-current-page)
+		{
+			background-color: #f5c518;
+			border-color: #f5c518;
+			color: #111;
+		}
+
+/* Активная (текущая) страница — чёрный фон, жёлтый текст */
 .btn-current-page
 {
-	background-color:black;
-	color:white;
-	font-weight:800;
+	background-color: #111;
+	color: #f5c518;
+	font-weight: 800;
+	border-color: #111;
+	cursor: default;
 }
 
+/* Многоточие в диапазоне страниц */
+.pagination .dots
+{
+	padding: 8px 4px;
+	color: #888;
+	font-weight: bold;
+	user-select: none;
+}

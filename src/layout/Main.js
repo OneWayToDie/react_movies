@@ -1,4 +1,4 @@
-import "./Main.css";
+﻿import "./Main.css";
 import React from "react";
 import Preloader from "../components/Preloader";
 import MovieList from "../components/MovieList";
@@ -30,11 +30,16 @@ class Main extends React.Component
     render() {
         return (
             <div className="main">
-                <Search searchMovie={this.searchMovie} totalCount={ this.state.count } />
+                {/* Передаю начальный запрос "Terminator", чтобы Search знал, что искать при пагинации */}
+                <Search
+                    searchMovie={this.searchMovie}
+                    totalCount={this.state.count}
+                    initialSearch="Terminator" /* ← добавил */
+                />
                 {
                     this.state.movies == null ? <h1>Nothing</h1> :
-                    this.state.movies.length === 0 ? <Preloader /> :
-                    <MovieList movies={this.state.movies} />
+                        this.state.movies.length === 0 ? <Preloader /> :
+                            <MovieList movies={this.state.movies} />
                 }
             </div>
         );

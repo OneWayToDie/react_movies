@@ -1,14 +1,33 @@
 .header
 {
-	background-color:rgb(0,91,151);
-	color:#FFF;
-	display:flex;
+	/* Чёрный фон шапки */
+	background-color: #111;
+	color: #fff;
+	display: flex;
 	justify-content: space-between;
-	align-items:center;
-	padding:16px;
+	align-items: center;
+	padding: 16px 24px;
+	/* Тень с жёлтым отливом*/
+	box-shadow: 0 2px 8px rgba(0,0,0,0.4), 0 2px 0 #f5c518;
+	/* Закрепляю шапку при прокрутке */
+	position: sticky;
+	top: 0;
+	z-index: 100;
 }
+
 .logo
 {
-	font-size:24px;
-	font-weight:500;
+	font-size: 24px;
+	font-weight: 800;
+	letter-spacing: 1px;
+	/* Логотип в жёлтом цвете*/
+	color: #f5c518;
+}
+
+.contacts
+{
+	text-align: right;
+	font-size: 14px;
+	line-height: 1.4;
+	color: #ddd;
 }

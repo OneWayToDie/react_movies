@@ -1,4 +1,6 @@
 .main
 {
+	/* Расчёт высоты, чтобы прижать футер к низу экрана */
 	min-height: calc(100vh - 74px - 64px);
+	padding-bottom: 32px;
 }

@@ -1,12 +1,61 @@
 .card
 {
-	margin:24px;
-	padding: 24px;
-	box-shadow: 0px 0px 24px 0px gray;
+	margin: 16px;
+	padding: 16px;
+	/* Тень в тёплых тонах */
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+	background-color: #fff;
+	border-radius: 12px;
+	/* Тонкая жёлтая рамка*/
+	border: 2px solid transparent;
+	transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 320px;
 }
+
+	/* Наведение: приподнимаю и подсвечиваю жёлтой рамкой */
+	.card:hover
+	{
+		transform: translateY(-5px);
+		box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+		border-color: #f5c518;
+	}
 
 	.card img
 	{
-		min-width: 300px;
-		min-height: 400px;
+		width: 100%;
+		height: 400px;
+		object-fit: cover; /* Картинка заполняет блок без искажений */
+		border-radius: 8px;
+		margin-bottom: 12px;
+	}
+
+	.card h3
+	{
+		margin: 8px 0;
+		font-size: 18px;
+		text-align: center;
+		color: #111;
+	}
+
+	.card div
+	{
+		text-align: center;
+		font-size: 14px;
+		color: #555;
+	}
+
+	/* Бейдж с типом (movie / series / game) — жёлтый */
+	.card span
+	{
+		background-color: #f5c518;
+		color: #111;
+		padding: 2px 8px;
+		border-radius: 4px;
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-left: 8px;
 	}

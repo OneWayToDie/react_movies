@@ -137,3 +137,22 @@
 	font-weight: bold;
 	user-select: none;
 }
+
+.pagination button.btn-current-page
+{
+	background-color: #111;
+	color: #f5c518;
+	font-weight: 800;
+	border-color: #111;
+	cursor: default;
+	/* Легкая жёлтая тень, чтобы активная страница «горела» */
+	box-shadow: 0 0 0 2px #f5c518 inset;
+}
+
+	/* Защита: даже при наведении активная страница не должна менять цвет.*/
+	.pagination button.btn-current-page:hover
+	{
+		background-color: #111;
+		color: #f5c518;
+		border-color: #111;
+	}

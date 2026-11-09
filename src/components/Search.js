@@ -17,8 +17,8 @@ class Search extends React.Component {
         }
     }
 
-    // Исправленный handleFilter: раньше второй аргумент setState был стрелкой,
-    // но setState принимал КОЛБЭК вторым аргументом, а не объект состояния
+    // Исправленный handleFilter:
+    // setState принимал КОЛБЭК вторым аргументом, а не объект состояния
     handleFilter = (event) => {
         this.setState(
             () => ({ type: event.target.dataset.type, page: 1 }),
